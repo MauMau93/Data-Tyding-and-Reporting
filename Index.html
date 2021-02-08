@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Calculator with 4 options</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 120px
+    }
+
+    .special {
+      color: red
+    }
+
+    .operator {
+      font-weight: bold;
+    }
+
+    #result {
+      border: solid 1pt;
+      border-color: red;
+    }
+  </style>
+
+  </style>
+
+
+
+  <script>
+
+    function myfun() {
+      document.getElementById('demo').style.fontSize = '35px';
+    }
+
+
+    function handleClick() {
+      var selectValue = document.getElementById("opList").value;
+      const constx = parseFloat(document.getElementById('first').value);
+      const consty = parseFloat(document.getElementById('second').value);
+      var result;
+
+      if (selectValue == "suma") {
+        result = constx + consty;
+      } else if (selectValue == "resta") {
+        result = constx - consty;
+      } else if (selectValue == "multiplicación") {
+        result = constx * consty;
+      } else {
+        result = constx / consty;
+      }
+      var output = document.getElementById("result");
+      output.value = result;
+    }
+
+    function init() {
+      var button = document.getElementById("equalTO");
+      button.onclick = handleClick;
+    }
+
+    window.onload = init;
+  </script>
+</head>
+
+
+<body>
+  <div class="special"> Calculator - Mauricio Marcos
+    <br>
+    <br>
+    <input id="first" placeholder="First Number">
+    </br>
+    </br>
+    <select id="opList">
+      <option value="suma">+</option>
+      <option value="resta">-</option>
+      <option value="multiplicación">*</option>
+      <option value="división">/</option>
+    </select>
+    </br>
+    </br>
+    <input id="second" placeholder="second number">
+    </br>
+    </br>
+    <button id="equalTO" onclick="handleClick()">=</button>
+    </br>
+    </br>
+    <input type="text" id="result" placeholder="Result" readonly onfocus="this.blur();">
+  </div>
+
+</body>
